@@ -4,9 +4,18 @@
              x:Class="GiftForSweet.Views.NoteAddingPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Margin="20">
+                <Editor Placeholder="Note text"
+                        Text="{Binding Text}"
+                        HeightRequest="100" />
+                <Grid ColumnDefinitions="*, *">
+                    <Button Text="Save"
+                            Clicked="OnSaveButton_Clicked" />
+                    <Button Grid.Column="1"
+                            Text="Delete"
+                            Clicked="OnDeleteButton_Clicked" />
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

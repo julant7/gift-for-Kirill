@@ -30,11 +30,11 @@ namespace GiftForSweet.Data
         {
             if (note.ID != 0)
             {
-                return db.UpdateAllAsync(note);
+                return db.UpdateAsync(note);
             }
             else
             {
-                return db.InsertAllAsync(note);
+                return db.InsertAsync(note);
             }
         }
 

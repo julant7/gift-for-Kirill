@@ -11,8 +11,8 @@
             ContentTemplate="{DataTemplate views:NotesPage}">
         </ShellContent>
         <ShellContent
-            Title="Notes"
-            Icon="icon_feed"
+            Title="About"
+            Icon="icon_about"
             ContentTemplate="{DataTemplate views:AboutPage}">
         </ShellContent>
     </TabBar>

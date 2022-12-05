@@ -19,6 +19,7 @@ namespace GiftForSweet
                         Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                         "NotesDatabase.db3"));
                 }
+                return notesDB;
             }
         }
         public App()
