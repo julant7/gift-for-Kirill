@@ -1,5 +1,4 @@
-﻿using GiftForSweet.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,21 +7,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-
-
 namespace GiftForSweet
 {
-    public partial class AppShell : Shell
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AuthPage : ContentPage
     {
-        public AppShell()
+        public AuthPage()
         {
-            Device.SetFlags(new string[] { "AppTheme_Experimental" });
-
             InitializeComponent();
-
-            Routing.RegisterRoute(nameof(NoteAddingPage), typeof(NoteAddingPage));
         }
-
         private async void authBtn_Clicked(object sender, EventArgs e)
         {
             bool isFingerPrintAvailable = await CrossFingerprint.Current.IsAvailableAsync(false);
@@ -38,18 +31,15 @@ namespace GiftForSweet
             var result = await CrossFingerprint.Current.AuthenticateAsync(configuration);
             if (result.Authenticated)
             {
-                // Authenticate Successfully 
+                // Authenticate Successfully
                 await DisplayAlert("Success", "Login Successfully", "Okay");
             }
             else
             {
-                // Something went wrong 
+                // Something went wrong
                 await DisplayAlert("Alert", "Login failed. Please try again", "Okay");
             }
         }
 
-
     }
 }
-
-

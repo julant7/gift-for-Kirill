@@ -25,7 +25,6 @@ namespace GiftForSweet
         public App()
         {
             InitializeComponent();
-
             MainPage = new AppShell();
         }
 

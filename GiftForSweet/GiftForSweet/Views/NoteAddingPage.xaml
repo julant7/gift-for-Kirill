@@ -7,6 +7,7 @@
             <StackLayout Margin="20">
                 <Editor Placeholder="Note text"
                         Text="{Binding Text}"
+                        TextColor="Black"
                         HeightRequest="100" />
                 <Grid ColumnDefinitions="*, *">
                     <Button Text="Save"
@@ -19,3 +20,4 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+    

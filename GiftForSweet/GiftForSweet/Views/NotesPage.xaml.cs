@@ -37,7 +37,6 @@ namespace GiftForSweet.Views
                 await Shell.Current.GoToAsync(
                     $"{nameof(NoteAddingPage)}?{nameof(NoteAddingPage.ItemId)}={note.ID.ToString()}");
             }
-
         }
     }
 }
