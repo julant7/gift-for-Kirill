@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -16,6 +16,20 @@
 
   <ItemGroup>
     <EmbeddedResource Remove="AuthPage.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Roboto-Black.ttf" />
+    <None Remove="icon_about.png" />
+    <None Remove="icon_feed.png" />
+    <None Remove="maxwell.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Roboto-Black.ttf" />
+    <EmbeddedResource Include="icon_about.png" />
+    <EmbeddedResource Include="icon_feed.png" />
+    <EmbeddedResource Include="maxwell.gif" />
   </ItemGroup>
 
   <ItemGroup>

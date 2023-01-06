@@ -15,6 +15,9 @@ namespace GiftForSweet.Views
         public AboutPage()
         {
             InitializeComponent();
+         
+            // App.Current.Resources["WindowBackgroundColor"] = Color.FromRgb(random1, random2, random3);
         }
+
     }
 }

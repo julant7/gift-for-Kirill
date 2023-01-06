@@ -1,13 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GiftForSweet.Views.AboutPage">
+             x:Class="GiftForSweet.Views.AboutPage"
+             BackgroundColor="{AppThemeBinding Dark=#39434B, Light=White}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Охаё"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Дорогой Кирилл!"
+                   FontFamily="Roboto-Black"
+                   TextColor ="{AppThemeBinding Light=#585478}"
+                   FontSize="Large"
+                   Margin="0, 45, 0, 0"
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="Любимый мальчик, поздравляю тебя с днем рождения! Я в приятном шоке, что ты смог поставить приложение на свое устройство))"     
+                   FontSize="Medium"
+                   Margin="30, 20, 20, 10"
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="Не буду долго разглагольствовать (нифига словечко), проведи этот день с удовольствием! И желаю хорошего года :)" 
+                   FontSize="Medium"
+                   Margin="30, 10, 20, 30"/>
+            <Image Source="maxwell.gif" IsAnimationPlaying="True"
+                   Margin="0, 0, 0, 20"/>
+            <Label Text="Контент 16+"
+                   FontSize="Medium"
+                   HorizontalOptions="CenterAndExpand"
+                   TextColor="{DynamicResource WindowBackgroundColor}"/>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

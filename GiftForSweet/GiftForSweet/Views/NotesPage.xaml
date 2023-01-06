@@ -1,31 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GiftForSweet.Views.NotesPage">
-    
-    <ContentPage.ToolbarItems>
+             x:Class="GiftForSweet.Views.NotesPage"
+             BackgroundColor="{AppThemeBinding Dark=#121212, Light=White}">
+
+    <ContentPage.Resources>
+        
+        <Color x:Key="MessageColorAnother">#EDEEF7</Color>
+        <Style x:Key="MessageShapeStyle" TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=#373737, Light=White}"/>
+            <Setter Property="CornerRadius" Value="24, 24, 0, 24"/>
+        </Style>
+        <Style x:Key="MessageShapeStyleAnother" TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="{StaticResource MessageColorAnother}"/>
+            <Setter Property="CornerRadius" Value="24, 24, 24, 0"/>
+        </Style>
+        <Style x:Key="MessageTextStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontFamily" Value="Roboto-Black"/>
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#BEBEBE}"/>
+            <Setter Property="Margin" Value="12, 0"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems BackgroundColor="{AppThemeBinding Dark=#5B04BC, Light=White}">
         <ToolbarItem Text="Add"
                      Clicked="AddButton_Clicked" />
     </ContentPage.ToolbarItems>
-    <CollectionView x:Name="collectionView"
-                    Margin="20"
+    <RelativeLayout>
+        <CollectionView x:Name="collectionView"
+                    Margin="20, 20, 20, 60"
                     SelectionMode="Single"
                     SelectionChanged="OnSelectionChanged">
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical"
+            <CollectionView.ItemsLayout BackgroundColor="{AppThemeBinding Dark=#2196F3, Light=#2196F3}">
+                <LinearItemsLayout Orientation="Vertical"
                                ItemSpacing="10" />
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout>
-                    <Label Text="{Binding Text}"
-                           FontSize="Medium"
-                           TextColor="Black"/>
-                    <Label Text="{Binding Date}"
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid>
+                            <BoxView 
+                            Style= "{AppThemeBinding Dark={StaticResource MessageShapeStyle}, Light={StaticResource MessageShapeStyleAnother}}"
+                           />
+                            <Label Text="{Binding Text}"
+                           Style="{StaticResource MessageTextStyle}"
+                            />
+                        </Grid>
+                        <Label Text="{Binding Date}"
                            TextColor="Silver"
                            FontSize="Small"/>
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+       
+        <Editor Placeholder="Type your message here..."
+                Margin="0, 640, 0, 0"
+                Text="{Binding Text}"
+                TextColor="{AppThemeBinding Dark=White, Light=Black}"
+                WidthRequest="300"
+                HeightRequest="50" 
+                />
+        <Grid Margin="300, 640, 0, 7">
+            <Button Text="Send"
+                    BackgroundColor="{AppThemeBinding Dark=#6A5ACD, Light=#9F6CC8}"
+                    TextColor="{AppThemeBinding Light=White}"
+                  
+                    Clicked="OnSaveButton_Clicked" />
+        </Grid>
+       
+    </RelativeLayout>
+
 </ContentPage>

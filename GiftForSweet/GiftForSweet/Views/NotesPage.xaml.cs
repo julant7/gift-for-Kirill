@@ -13,9 +13,32 @@ namespace GiftForSweet.Views
 {
     public partial class NotesPage : ContentPage
     {
+        public string ItemId
+        {
+            set
+            {
+                LoadNote(value);
+            }
+        }
+
         public NotesPage()
         {
             InitializeComponent();
+            BindingContext = new Note();
+        }
+
+
+        private async void LoadNote(string value)
+        {
+            try
+            {
+                int id = Convert.ToInt32(value);
+
+                Note note = await App.NotesDB.GetNoteAsync(id);
+
+                BindingContext = note;
+            }
+            catch { }
         }
 
         protected override async void OnAppearing()
@@ -37,6 +60,19 @@ namespace GiftForSweet.Views
                 await Shell.Current.GoToAsync(
                     $"{nameof(NoteAddingPage)}?{nameof(NoteAddingPage.ItemId)}={note.ID.ToString()}");
             }
+        }
+        private async void OnSaveButton_Clicked(object sender, EventArgs e)
+        {
+            Note note = (Note)BindingContext;
+
+            note.Date = DateTime.UtcNow;
+
+            if (!string.IsNullOrWhiteSpace(note.Text))
+            {
+                await App.NotesDB.SaveNotAsync(note);
+            }
+
+            await Shell.Current.GoToAsync("..");
         }
     }
 }
